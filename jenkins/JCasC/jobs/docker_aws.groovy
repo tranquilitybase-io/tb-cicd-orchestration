@@ -1,5 +1,5 @@
-pipeline {
-    agent any
+// pipeline {
+//     agent any
 
     // environment {
     //     ACCOUNT_ID = "${sh(script:'curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | grep -oP '(?<="accountId" : ")[^"]*(?=")'', returnStdout: true).trim()}"
@@ -25,4 +25,4 @@ pipeline {
 //             }
 //         }
 //     }
-}
+// }

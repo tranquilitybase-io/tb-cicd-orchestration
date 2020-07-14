@@ -24,9 +24,21 @@ jenkins:
   securityRealm:
     local:
       allowsSignup: false
+      enableCaptcha: false
       users:
-        - id: "admin"
-          password: ${JENKINS_PASS}   # Not the most secure way to do this, use a env var / secrets manager
+      - id: "admin"
+        name: "admin"
+        properties:
+        - "apiToken"
+        - favoriting:
+            autofavoriteEnabled: true
+        - "mailer"
+        - "favorite"
+        - "myView"
+        - preferredProvider:
+            providerId: "default"
+        - "slack"
+        - "timezone"
   slaveAgentPort: 50000
   updateCenter:
     sites:
@@ -36,25 +48,16 @@ jenkins:
   - all:
       name: "all"
   viewsTabBar: "standard"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: false
+  sSHD:
+    port: -1
 unclassified:
-  globalLibraries:
-    libraries:
-    - name: "Sandbox"
-    - defaultVersion: "master"
-      implicit: true
-      name: "sandbox"
-      retriever:
-        modernSCM:
-          scm:
-            git:
-              id: "sandbox-repo"
-              remote: ${REPO}
-              traits:
-              - cloneOptionTrait:
-                  extension:
-                    depth: 1
-                    noTags: true
-                    shallow: true
   bitbucketEndpointConfiguration:
     endpoints:
     - bitbucketCloudEndpoint:
@@ -79,14 +82,43 @@ unclassified:
       connectionTimeout: 10
       ignoreCertificateErrors: false
       readTimeout: 10
+    - clientBuilderId: "autodetect"
+      connectionTimeout: 10
+      ignoreCertificateErrors: false
+      readTimeout: 10
   gitSCM:
     createAccountBasedOnEmail: false
+    globalConfigEmail: "Jenkins@gft.com"
+    globalConfigName: "Jenkins"
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: false
   githubPullRequests:
     actualiseOnFactory: false
+  globalLibraries:
+    libraries:
+    - name: "Sandbox"
+    - defaultVersion: "master"
+      implicit: true
+      name: "sandbox"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              id: "sandbox-repo"
+              remote: "https://github.com/Tirano2150/jenkins-casc.git"
+              traits:
+              - cloneOptionTrait:
+                  extension:
+                    depth: 1
+                    noTags: true
+                    shallow: true
+  hashicorpVault:
+    configuration:
+      engineVersion: 2
+      timeout: 60
   location:
     adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "http://localhost:8080/"
   mailer:
     charset: "UTF-8"
     useSsl: false
@@ -109,6 +141,3 @@ tool:
     triggerDownstreamUponResultNotBuilt: false
     triggerDownstreamUponResultSuccess: true
     triggerDownstreamUponResultUnstable: false
-jobs:
-  - file: /usr/share/jenkins/ref/jobs/seed.groovy
-  - file: /usr/share/jenkins/ref/jobs/docker_aws.groovy
