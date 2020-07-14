@@ -1,6 +1,7 @@
 job('Seed All') {
     
     parameters {
+        stringParam('REPO', 'https://github.com/tranquilitybase-io/tb-houston-orchestration', 'The branch where Jenkins jobs are stored')
         stringParam('BRANCH', 'master', 'The branch (used for testing)')
     }
 
