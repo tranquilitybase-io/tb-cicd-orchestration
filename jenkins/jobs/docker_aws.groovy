@@ -1,17 +1,15 @@
 pipeline {
     agent any
 
+    environment {
+        ACCOUNT_ID = "${sh(script:'curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | grep -oP '(?<="accountId" : ")[^"]*(?=")'', returnStdout: true).trim()}"
+    }
+
     stages {
-        stage ('Calculate variables') {
-            steps {
-                env.ACCOUNT_ID = sh ("curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | grep -oP '(?<="accountId" : ")[^"]*(?=")' ") # Needs escaping
-            }
-        }
 
         stage('Checkout') {
             steps {
                 git 'https://github.com/tranquilitybase-io/tb-houston-orchestration'
-
             }
         }
         stage('Login') {
@@ -21,6 +19,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'cd Jenkins/JCasC/'                                  // Might be worth changing to a dir step
                 sh 'docker build -t dac .'
                 sh 'docker tag dac:latest 122072647213.dkr.ecr.eu-west-1.amazonaws.com/dac:latest'
                 sh 'docker push 122072647213.dkr.ecr.eu-west-1.amazonaws.com/dac:latest'
