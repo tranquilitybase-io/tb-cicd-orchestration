@@ -2,9 +2,16 @@ pipeline {
     agent any
 
     stages {
+        stage ('Calculate variables') {
+            steps {
+                env.ACCOUNT_ID = sh ("curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | grep -oP '(?<="accountId" : ")[^"]*(?=")' ") # Needs escaping
+            }
+        }
+
         stage('Checkout') {
             steps {
-                git 'https://github.com/tranquilitybase-io/tb-gcp/tree/issue-398---Jenkins-CasC/tb-jenkins'
+                git 'https://github.com/tranquilitybase-io/tb-houston-orchestration'
+
             }
         }
         stage('Login') {
