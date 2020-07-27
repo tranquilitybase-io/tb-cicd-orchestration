@@ -15,6 +15,6 @@ job('Build Terraform') {
   }
 
   steps {
-    shell (terraform init)
+    shell ('terraform init')
   }
 }
