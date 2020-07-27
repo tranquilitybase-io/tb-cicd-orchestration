@@ -1,7 +1,7 @@
 job('Build Terraform') {
     
   parameters {
-        stringParam('REPO', 'github.com/Tirano2150/aws-sample-tf', 'The branch where Terraform is stored')
+        stringParam('REPO', 'Tirano2150/aws-sample-tf', 'The branch where Terraform is stored')
         stringParam('BRANCH', 'master', 'The branch (used for testing)')
     }
 
@@ -16,6 +16,5 @@ job('Build Terraform') {
 
   steps {
     shell (terraform init)
-    }
   }
 }

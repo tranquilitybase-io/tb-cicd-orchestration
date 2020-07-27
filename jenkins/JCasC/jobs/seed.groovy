@@ -1,7 +1,7 @@
 job('Seed All') {
     
     parameters {
-        stringParam('REPO', 'https://github.com/tranquilitybase-io/tb-houston-orchestration', 'The branch where Jenkins jobs are stored')
+        stringParam('REPO', 'tranquilitybase-io/tb-houston-orchestration', 'The branch where Jenins is stored')
         stringParam('BRANCH', 'master', 'The branch (used for testing)')
     }
 
@@ -10,12 +10,7 @@ job('Seed All') {
     }
 
   scm {
-    git {
-      remote {
-        github ('tranquilitybase-io/tb-houston-orchestration')
-      }
-      branches('${BRANCH}', 'master')
-    }
+    git ('${REPO}', '${BRANCH}')
   }
 
   steps {

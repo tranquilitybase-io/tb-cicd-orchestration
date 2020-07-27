@@ -120,4 +120,3 @@ tool:
     triggerDownstreamUponResultUnstable: false
 jobs:
   - file: /usr/share/jenkins/ref/jobs/seed.groovy
-  - file: /usr/share/jenkins/ref/jobs/docker_aws.groovy
