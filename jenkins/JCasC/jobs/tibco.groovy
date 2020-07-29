@@ -2,7 +2,8 @@ job('Tibco') {
 
   steps {
     shell (
-      'echo Hello world'
+      'cd /usr/share/jenkins/synapse/'
+      'ls'
       )
   }
 }
