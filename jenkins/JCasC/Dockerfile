@@ -5,16 +5,19 @@ COPY terraform /usr/local/bin/terraform
 
 USER root
 
-RUN apt-get update
+# Keeping these seperate for trouble shooting
+RUN apt-get update                  
 RUN apt-get install -y python-pip 
+RUN pip install google-cloud
 
-RUN  pip install awscli --upgrade --user 
+RUN pip install awscli --upgrade --user 
+
 # RUN pip install --upgrade gcloud
 
 # Setup initial user
 
 ENV JENKINS_USER administrator
-ENV JENKINS_PASS password
+ENV JENKINS_PASS qazwsx123!
 ENV REPO https://github.com/Tirano2150/jenkins-casc.git
 
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
@@ -22,6 +25,10 @@ COPY jenkins.init/* /usr/share/jenkins/ref/init.groovy.d/
 COPY /jobs/* /usr/share/jenkins/ref/jobs/
 
 # ENV JENKINS_UC_DOWNLOAD http://jenkins-updates.cloudbees.com/download
+
+# Temp copy of synapse stuff
+
+COPY /synapse /usr/share/jenkins/synapse/
 
 # # back to proper install
 
