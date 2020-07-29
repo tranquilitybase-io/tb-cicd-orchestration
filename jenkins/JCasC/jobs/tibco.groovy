@@ -6,7 +6,9 @@ job('Tibco') {
 cd /usr/share/jenkins/synapse/
 export GOOGLE_APPLICATION_CREDENTIALS=credentials.json
 ls
-gcloud
+make init
+make plan
+make apply
       '''
       )
   }
