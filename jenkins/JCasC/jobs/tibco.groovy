@@ -5,6 +5,7 @@ job('Tibco') {
       '''
       cd /usr/share/jenkins/synapse/
       ls
+      gcloud
       '''
       )
   }
