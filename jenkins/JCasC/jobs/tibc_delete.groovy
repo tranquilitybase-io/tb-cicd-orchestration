@@ -1,13 +1,14 @@
-job('Tibco Delete') {
+pipeline('Tibco Delete') {
+  agent any
 
-  steps {
-    shell (
-      '''
-cd /usr/share/jenkins/synapse/
-export GOOGLE_APPLICATION_CREDENTIALS=credentials.json
-ls
-terraform destroy -var-file="/vars/dev.tfvars" -auto-approve
-      '''
-      )
+  stages {
+    stage {'Build'}
+      steps {
+        sh """
+        cd /usr/share/jenkins/synapse/
+        ls
+        terraform destroy -var-file="/vars/dev.tfvars" -auto-approve
+        """
+    }
   }
 }
