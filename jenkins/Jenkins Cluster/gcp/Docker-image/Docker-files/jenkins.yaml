@@ -83,13 +83,20 @@ unclassified:
       ignoreCertificateErrors: false
       readTimeout: 10
   gitSCM:
-    createAccountBasedOnEmail: false
+    createAccountBasedOnEmail: true
+    globalConfigEmail: "Jenkins@gft.com"
+    globalConfigName: "Jenkins"
     showEntireCommitSummaryInChanges: false
-    useExistingAccountWithSameEmail: false
+    useExistingAccountWithSameEmail: true
   githubPullRequests:
     actualiseOnFactory: false
+  hashicorpVault:
+    configuration:
+      engineVersion: 2
+      timeout: 60
   location:
     adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "http://10.0.1.9/"
   mailer:
     charset: "UTF-8"
     useSsl: false
