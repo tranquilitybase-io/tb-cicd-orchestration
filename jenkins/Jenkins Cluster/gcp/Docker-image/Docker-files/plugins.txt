@@ -12,7 +12,7 @@ credentials-binding:1.18
 credentials-binding:1.23
 bouncycastle-api
 google-oauth-plugin
-configuration-as-code
+configuration-as-code:1.43
 snakeyaml-api
 handlebars
 momentjs
