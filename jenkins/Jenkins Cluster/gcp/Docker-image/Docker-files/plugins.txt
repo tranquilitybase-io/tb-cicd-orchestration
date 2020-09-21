@@ -6,9 +6,6 @@ aws-java-sdk
 structs
 trilead-api
 command-launcher
-credentials-binding:1.13
-credentials-binding:1.16
-credentials-binding:1.18
 credentials-binding:1.23
 bouncycastle-api
 google-oauth-plugin
@@ -29,7 +26,6 @@ antisamy-markup-formatter
 jsch
 display-url-api
 lockable-resources
-structs
 branch-api
 cloudbees-folder
 credentials
@@ -78,7 +74,6 @@ google-cloud-backup
 googlecode
 google-cloud-health-check
 google-deployment-manager
-google-chat-notification
 #google-container-security-plugin
 google-admin-sdk
 gradle
@@ -139,7 +134,6 @@ sse-gateway
 cloudbees-bitbucket-branch-source 
 blueocean-display-url
 blueocean-pipeline-scm-api
-pipeline-stage-step
 blueocean-dashboard
 blueocean-pipeline-editor
 blueocean-rest
@@ -160,9 +154,7 @@ blueocean-events
 blueocean-i18n
 blueocean
 blueocean-autofavorite
-gitlab-plugin
 service-now
 build-timeout
 build-token-trigger
-command-launcher
 build-token-root
