@@ -88,9 +88,8 @@ ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 
 USER ${user}
 
-COPY jenkins.yaml $JENKINS_HOME/jenkins.yaml
-ENV CASC_JENKINS_CONFIG=$JENKINS_HOME/jenkins.yaml
 
+ENV CASC_JENKINS_CONFIG=$JENKINS_HOME
 
 
 COPY jenkins-support /usr/local/bin/jenkins-support
