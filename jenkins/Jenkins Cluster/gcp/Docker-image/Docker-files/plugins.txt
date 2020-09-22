@@ -71,7 +71,6 @@ google-git-notes-publisher
 google-metadata-plugin
 google-container-registry-auth
 google-cloud-backup
-googlecode
 google-cloud-health-check
 google-deployment-manager
 #google-container-security-plugin
