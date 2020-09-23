@@ -3,6 +3,7 @@ jenkins:
   authorizationStrategy: "loggedInUsersCanDoAnything"
   numExecutors: 1
   mode: NORMAL
+  disableRememberMe: false
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: true
