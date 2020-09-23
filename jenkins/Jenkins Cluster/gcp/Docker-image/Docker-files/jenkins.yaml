@@ -14,4 +14,11 @@ jenkins:
       users:
       - id: admin
         password: admin
+unclassified:
+  gitSCM:
+    createAccountBasedOnEmail: true
+    globalConfigEmail: "Jenkins@gft.com"
+    globalConfigName: "Jenkins"
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: true
 
