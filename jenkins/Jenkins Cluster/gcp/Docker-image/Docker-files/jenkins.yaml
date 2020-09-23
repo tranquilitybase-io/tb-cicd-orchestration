@@ -1,10 +1,31 @@
 jenkins:
   systemMessage: "Jenkins configured using CasC."
-  numExecutors: 3
+  authorizationStrategy: "loggedInUsersCanDoAnything"
+  numExecutors: 1
   mode: NORMAL
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+  scmCheckoutRetryCount: 3
   securityRealm:
     local:
       allowsSignup: false
       users:
-       - id: admin
-         password: admin
+      - id: "admin"
+        password: "admin"
+unclassified:
+  gitSCM:
+    createAccountBasedOnEmail: true
+    globalConfigEmail: "Jenkins@gft.com"
+    globalConfigName: "Jenkins"
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: true
+tool:
+  dockerTool:
+    installations:
+    - name: "docker"
+      properties:
+      - installSource:
+          installers:
+          - fromDocker:
+              version: "latest"
