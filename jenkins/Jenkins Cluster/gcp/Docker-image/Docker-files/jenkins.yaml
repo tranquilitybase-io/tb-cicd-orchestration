@@ -21,4 +21,9 @@ unclassified:
     globalConfigName: "Jenkins"
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: true
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
 
