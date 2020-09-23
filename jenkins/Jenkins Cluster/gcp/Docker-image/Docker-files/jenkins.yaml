@@ -11,21 +11,6 @@ jenkins:
     local:
       allowsSignup: false
       users:
-      - id: "admin"
-        password: "admin"
-unclassified:
-  gitSCM:
-    createAccountBasedOnEmail: true
-    globalConfigEmail: "Jenkins@gft.com"
-    globalConfigName: "Jenkins"
-    showEntireCommitSummaryInChanges: false
-    useExistingAccountWithSameEmail: true
-tool:
-  dockerTool:
-    installations:
-    - name: "docker"
-      properties:
-      - installSource:
-          installers:
-          - fromDocker:
-              version: "latest"
+      - id: admin
+        password: admin
+
