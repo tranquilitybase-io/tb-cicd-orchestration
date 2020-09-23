@@ -90,6 +90,7 @@ USER ${user}
 
 
 ENV CASC_JENKINS_CONFIG=/var/jenkins_home
+COPY jenkins.yaml /var/jenkins_home
 
 
 COPY jenkins-support /usr/local/bin/jenkins-support
