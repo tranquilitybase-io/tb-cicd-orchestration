@@ -1,5 +1,5 @@
 # Jenkins master manifest
-Below are examples of the standard Jenkins master manifest and a manifest which contains a deploment pattern that mounts secrets.
+Below are examples of the standard Jenkins master manifest and a manifest which contains a deployment pattern that mounts secrets.
 
 ### Standard Jenkins master deployment
 
