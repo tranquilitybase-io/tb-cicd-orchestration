@@ -22,6 +22,14 @@ unclassified:
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: true
 tool:
+  dockerTool:
+    installations:
+    - name: "docker"
+      properties:
+      - installSource:
+          installers:
+          - fromDocker:
+              version: "5:18.09.1~3-0~debian-stretch"
   git:
     installations:
     - home: "git"
