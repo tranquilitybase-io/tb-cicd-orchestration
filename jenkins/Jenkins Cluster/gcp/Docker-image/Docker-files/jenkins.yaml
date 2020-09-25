@@ -1,29 +1,123 @@
 jenkins:
-  systemMessage: "Jenkins configured using CasC."
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
   authorizationStrategy: "loggedInUsersCanDoAnything"
-  numExecutors: 1
-  mode: NORMAL
-  disableRememberMe: false
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: true
+  disableRememberMe: false
+  labelAtoms:
+  - name: "master"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 2
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
   scmCheckoutRetryCount: 3
   securityRealm:
     local:
       allowsSignup: false
+      enableCaptcha: false
       users:
-      - id: admin
-        password: admin
+      - id: "admin"
+        password: "admin"
+		    name: "admin"
+        properties:
+        - "apiToken"
+        - favoriting:
+            autofavoriteEnabled: true
+        - "mailer"
+        - "favorite"
+        - "myView"
+        - preferredProvider:
+            providerId: "default"
+        - "slack"
+        - "timezone"
+  slaveAgentPort: 50000
+  systemMessage: "Jenkins configured using CasC."
+  updateCenter:
+    sites:
+    - id: "default"
+      url: "https://updates.jenkins.io/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  sSHD:
+    port: -1
 unclassified:
+  bitbucketEndpointConfiguration:
+    endpoints:
+    - bitbucketCloudEndpoint:
+        enableCache: false
+        manageHooks: false
+        repositoriesCacheDuration: 0
+        teamCacheDuration: 0
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  buildStepOperation:
+    enabled: false
+  defaultFolderConfiguration:
+    healthMetrics:
+    - worstChildHealthMetric:
+        recursive: true
+  gitHubConfiguration:
+    apiRateLimitChecker: ThrottleForNormalize
+  gitHubPluginConfig:
+    hookUrl: "http://10.0.1.10/github-webhook/"
+  gitLabConnectionConfig:
+    connections:
+    - clientBuilderId: "autodetect"
+      connectionTimeout: 10
+      ignoreCertificateErrors: false
+      readTimeout: 10
   gitSCM:
+    allowSecondFetch: false
     createAccountBasedOnEmail: true
+    disableGitToolChooser: false
     globalConfigEmail: "Jenkins@gft.com"
     globalConfigName: "Jenkins"
+    hideCredentials: false
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: true
+  githubPullRequests:
+    actualiseOnFactory: false
+  junitTestResultStorage:
+    storage: "file"
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+    useTls: false
+  mavenModuleSet:
+    localRepository: "default"
+  pollSCM:
+    pollingThreadCount: 10
+  slackNotifier:
+    botUser: false
+    sendAsText: false
 tool:
   git:
     installations:
     - home: "git"
       name: "Default"
-
+  pipelineMaven:
+    triggerDownstreamUponResultAborted: false
+    triggerDownstreamUponResultFailure: false
+    triggerDownstreamUponResultNotBuilt: false
+    triggerDownstreamUponResultSuccess: true
+    triggerDownstreamUponResultUnstable: false
