@@ -21,8 +21,8 @@ ARG REF=/usr/share/jenkins/ref
 ENV JENKINS_HOME $JENKINS_HOME
 ENV JENKINS_SLAVE_AGENT_PORT ${agent_port}
 ENV REF $REF
-ENV JENKINS_USER admin
-ENV JENKINS_PASS admin
+ENV ADMIN_USERNAME=admin
+ENV ADMIN_PASSWORD=admin
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
 #ENV JENKINS_UC_DOWNLOAD="http://mirrors.jenkins-ci.org"
 
@@ -92,7 +92,7 @@ USER ${user}
 ENV CASC_JENKINS_CONFIG=/var/jenkins_home
 COPY jenkins.yaml /var/jenkins_home
 
-
+COPY init-scripts /usr/share/jenkins/ref/init.groovy.d
 COPY jenkins-support /usr/local/bin/jenkins-support
 COPY jenkins.sh /usr/local/bin/jenkins.sh
 COPY tini-shim.sh /bin/tini
