@@ -3,6 +3,4 @@ jenkins:
   views:
   - myView:
       name: "Jobs Config as Code"
-security:  
-  globalJobDslSecurityConfiguration:    
-    useScriptSecurity: false
+
