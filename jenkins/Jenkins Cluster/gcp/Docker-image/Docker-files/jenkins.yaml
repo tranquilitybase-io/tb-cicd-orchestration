@@ -1,8 +1,8 @@
 jenkins:
   systemMessage: "Jenkins As Code Concept."
   views:
-    - myView:
-        name: "Jobs Config as Code"
+  - myView:
+      name: "Jobs Config as Code"
 security:  
   globalJobDslSecurityConfiguration:    
     useScriptSecurity: false
