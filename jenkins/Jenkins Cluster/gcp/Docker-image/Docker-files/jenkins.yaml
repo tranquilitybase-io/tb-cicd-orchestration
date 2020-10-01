@@ -45,7 +45,12 @@ jobs:
         cron("H/15 * * * *")
       }
       scm {
-        git ('${REPO}', '${BRANCH}')
+        git {
+          remote {
+            github("\${REPO}", "")
+          }
+            branch("\${BRANCH}", "")
+        }
       }
       steps {
         dsl {
