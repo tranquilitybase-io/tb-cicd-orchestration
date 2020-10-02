@@ -47,9 +47,9 @@ jobs:
       scm {
         git {
           remote {
-            github("\${REPO}", "")
+            ${REPO}
           }
-            branch("\${BRANCH}", "")
+            ${BRANCH}
         }
       }
       steps {
