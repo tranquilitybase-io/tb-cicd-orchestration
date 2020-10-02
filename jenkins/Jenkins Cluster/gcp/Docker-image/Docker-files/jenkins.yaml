@@ -47,7 +47,7 @@ jobs:
       scm {
         git {
           remote {
-            url 'ssh://github.com/tranquilitybase-io/tb-houston-orchestration.git'
+            url 'https://github.com/tranquilitybase-io/tb-houston-orchestration.git'
           }
         }
       }
