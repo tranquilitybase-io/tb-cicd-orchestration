@@ -93,6 +93,7 @@ ENV CASC_JENKINS_CONFIG=/var/jenkins_home
 COPY jenkins.yaml /var/jenkins_home
 
 COPY init-scripts /usr/share/jenkins/ref/init.groovy.d
+COPY disable-script-security.groovy /usr/share/jenkins/ref/init.groovy.d/disable-script-security.groovy
 COPY jenkins-support /usr/local/bin/jenkins-support
 COPY jenkins.sh /usr/local/bin/jenkins.sh
 COPY tini-shim.sh /bin/tini
