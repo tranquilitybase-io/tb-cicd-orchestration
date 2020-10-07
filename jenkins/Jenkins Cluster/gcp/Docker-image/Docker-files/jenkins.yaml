@@ -14,6 +14,16 @@ jenkins:
       users:
       - id: "admin"
         password: "admin"
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          description: "github-credentials"
+          id: "gituser"
+          password: "Jn5u9y8UI*M*"
+          scope: GLOBAL
+          username: "TBservice-jenkins"        
 unclassified:
   gitSCM:
     createAccountBasedOnEmail: true
