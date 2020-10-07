@@ -14,6 +14,7 @@ pipelineJob("activator-pipeline") {
 				git {
 					remote {
 						url '$repourl'
+						credentials("gituser")
 					}
 				}
 			}
