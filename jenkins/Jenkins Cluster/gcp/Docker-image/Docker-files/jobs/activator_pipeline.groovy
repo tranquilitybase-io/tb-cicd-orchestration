@@ -13,7 +13,7 @@ pipelineJob("activator-pipeline") {
 			scm {
 				git {
 					remote {
-						url 'https://github.com/tranquilitybase-io/tb-activator-gft-base.git'
+						url '$repourl'
 					}
 				}
 			}
