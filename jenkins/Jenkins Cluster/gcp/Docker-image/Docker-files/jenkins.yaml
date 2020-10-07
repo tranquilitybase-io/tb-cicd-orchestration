@@ -38,7 +38,7 @@ jobs:
 - script: >
     job('Seed All') {
       parameters {
-        stringParam('REPO', 'https://github.com/tranquilitybase-io/tb-houston-orchestration/', 'The branch where Jenins is stored')
+        stringParam('REPO', 'https://github.com/tranquilitybase-io/tb-houston-orchestration.git', 'The branch where Jenkins is stored')
         stringParam('BRANCH', 'master', 'The branch (used for testing)')
       }
       triggers {
