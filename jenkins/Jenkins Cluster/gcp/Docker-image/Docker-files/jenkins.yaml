@@ -14,6 +14,9 @@ jenkins:
       users:
       - id: "admin"
         password: "admin"
+      - id: "DAC"
+        description: "DAC User"
+        password: "password"
 credentials:
   system:
     domainCredentials:
