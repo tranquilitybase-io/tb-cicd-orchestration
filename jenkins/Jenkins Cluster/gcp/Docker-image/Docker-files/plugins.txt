@@ -73,6 +73,7 @@ google-container-registry-auth
 google-cloud-backup
 google-cloud-health-check
 google-deployment-manager
+gcp-secrets-manager-credentials-provider:0.1.0
 #google-container-security-plugin
 google-admin-sdk
 gradle
