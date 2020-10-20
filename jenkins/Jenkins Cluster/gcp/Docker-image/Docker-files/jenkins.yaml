@@ -51,7 +51,7 @@ jobs:
 - script: >
     job('Seed All') {
       parameters {
-        stringParam('REPO', 'https://github.com/tranquilitybase-io/tb-houston-orchestration.git', 'The branch where Jenkins is stored')
+        stringParam('REPO', 'https://github.com/tranquilitybase-io/tb-jenkins.git', 'The branch where Jenkins is stored')
         stringParam('BRANCH', 'master', 'The branch (used for testing)')
       }
       triggers {
@@ -66,7 +66,7 @@ jobs:
       }
       steps {
         dsl {
-          external('jenkins/Jenkins Cluster/gcp/Docker-image/Docker-files/jobs/*.groovy')  
+          external('*.groovy')  
        // default behavior
        // removeAction('IGNORE')      
           removeAction('DELETE')
