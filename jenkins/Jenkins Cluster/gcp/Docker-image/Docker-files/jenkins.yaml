@@ -51,7 +51,7 @@ jobs:
 - script: >
     job('Seed All') {
       parameters {
-        stringParam('REPO', 'https://github.com/tranquilitybase-io/tb-jenkins.git', 'The branch where Jenkins is stored')
+        stringParam('REPO', 'https://github.com/tranquilitybase-io/tb-jenkins-jobs.git', 'The branch where Jenkins is stored')
         stringParam('BRANCH', 'master', 'The branch (used for testing)')
       }
       triggers {
