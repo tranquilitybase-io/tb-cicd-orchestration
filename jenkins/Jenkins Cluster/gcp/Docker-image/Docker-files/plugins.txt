@@ -85,7 +85,7 @@ junit
 job-dsl:1.77
 ldap
 mapdb-api
-mailer:1.32
+mailer:1.32.1
 #matrix-auth
 matrix-project
 maven-plugin
