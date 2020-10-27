@@ -27,13 +27,6 @@ credentials:
           password: "Jn5u9y8UI*M*"
           scope: GLOBAL
           username: "TBservice-jenkins"        
-unclassified:
-  gitSCM:
-    createAccountBasedOnEmail: true
-    globalConfigEmail: "Jenkins@gft.com"
-    globalConfigName: "Jenkins"
-    showEntireCommitSummaryInChanges: false
-    useExistingAccountWithSameEmail: true
 tool:
   dockerTool:
     installations:
