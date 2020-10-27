@@ -17,6 +17,7 @@ ARG http_port=8080
 ARG agent_port=50000
 ARG JENKINS_HOME=/var/jenkins_home
 ARG REF=/usr/share/jenkins/ref 
+ARG JENKINS_CONFIG=/var/jenkins_config
 
 ENV JENKINS_HOME $JENKINS_HOME
 ENV JENKINS_SLAVE_AGENT_PORT ${agent_port}
@@ -46,6 +47,9 @@ VOLUME $JENKINS_HOME
 # to set on a fresh new installation. Use it to bundle additional plugins
 # or config file with your custom jenkins Docker image.
 RUN mkdir -p ${REF}/init.groovy.d
+
+# $JENKINS_CONFIG (defaults to `/var/jenkins_config/`) contains the .yaml file the JCASC plugin uses to instantiate Jenkins with
+RUN mkdir -p $JENKINS_CONFIG
 
 # Use tini as subreaper in Docker container to adopt zombie processes
 ARG TINI_VERSION=v0.16.1
@@ -89,8 +93,8 @@ ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 USER ${user}
 
 
-ENV CASC_JENKINS_CONFIG=/var/jenkins_home
-COPY jenkins.yaml /var/jenkins_home
+ENV CASC_JENKINS_CONFIG=/var/jenkins_config/jenkins.yaml
+COPY jenkins.yaml /var/jenkins_config/jenkins.yaml
 
 COPY init-scripts /usr/share/jenkins/ref/init.groovy.d
 COPY disable-script-security.groovy /usr/share/jenkins/ref/init.groovy.d/disable-script-security.groovy
