@@ -61,6 +61,7 @@ jobs:
         git {
           remote {
             url '$REPO'
+            branch '$BRANCH'
           }
         }
       }
