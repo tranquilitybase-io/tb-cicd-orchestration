@@ -44,6 +44,7 @@ oauth-credentials
 htmlpublisher
 hashicorp-vault-plugin 
 handy-uri-templates-2-api
+generic-webhook-trigger
 git-client
 git-server
 git
